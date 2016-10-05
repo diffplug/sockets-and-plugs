@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-SymbolicName: com.diffplug.talks.socketsandplugs.eclipse;single
+ ton:=true
+Bundle-Version: 0.0.0.ERRORSETVERSION
+Export-Package: com.diffplug.talks.socketsandplugs.eclipse;version="0.
+ 0.0"
+Require-Capability: osgi.ee;filter:="(&(osgi.ee=JavaSE)(version=1.8))"

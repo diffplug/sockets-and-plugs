@@ -1,0 +1,47 @@
+plugins {
+	id 'com.diffplug.gradle.osgi.bndmanifest' version '3.2.1'
+	id 'com.diffplug.gradle.eclipse.buildproperties' version '3.2.1'
+}
+
+repositories {
+	maven {
+		url 'https://repo.eclipse.org/content/repositories/releases/'
+	}
+	mavenCentral()
+}
+
+apply plugin: 'java'
+dependencies {
+	compile 'org.eclipse.core:org.eclipse.core.runtime:3.10.0.v20140318-2214'
+	testCompile 'junit:junit:4.12'
+}
+
+apply plugin: 'eclipse'
+eclipse {
+	project {
+		natures 'org.eclipse.pde.PluginNature'
+		natures 'org.eclipse.jdt.core.javanature'
+		buildCommand 'org.eclipse.jdt.core.javabuilder'
+		buildCommand 'org.eclipse.pde.ManifestBuilder'
+		buildCommand 'org.eclipse.pde.SchemaBuilder'
+	}
+	classpath {
+		downloadSources true
+		downloadJavadoc true
+	}
+	jdt {
+		sourceCompatibility VER_JAVA
+		targetCompatibility VER_JAVA
+	}
+}
+
+osgiBndManifest {
+	copyTo 'META-INF/MANIFEST.MF'
+}
+jar.manifest.attributes(
+	'Bundle-SymbolicName': "com.diffplug.talks.socketsandplugs.eclipse;singleton:=true",
+	'Bundle-RequiredExecutionEnvironment': 'JavaSE-1.8',
+	'Require-Capability': 'osgi.ee;filter:="(&(osgi.ee=JavaSE)(version=1.8))"',
+	'-exportcontents': 'com.diffplug.*',
+	'-removeheaders': 'Bnd-LastModified,Bundle-Name,Created-By,Tool,Private-Package',
+)
