@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+  <extension-point id="operator" name="operator" schema="schema/operator.exsd"/>
+  <extension
+        id="pi"
+        point="com.diffplug.talks.socketsandplugs.eclipse.operator">
+     <operator
+           implementation="com.diffplug.talks.socketsandplugs.eclipse.Operators$Pi"
+           name="pi">
+     </operator>
+  </extension>
+  <extension
+        id="power"
+        point="com.diffplug.talks.socketsandplugs.eclipse.operator">
+     <operator
+           implementation="com.diffplug.talks.socketsandplugs.eclipse.Operators$Power"
+           name="power">
+     </operator>
+  </extension>
+  <extension
+        id="product"
+        point="com.diffplug.talks.socketsandplugs.eclipse.operator">
+     <operator
+           implementation="com.diffplug.talks.socketsandplugs.eclipse.Operators$Product"
+           name="product">
+     </operator>
+  </extension>
+</plugin>
