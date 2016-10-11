@@ -1,0 +1,36 @@
+<idea-plugin version="2">
+  <id>com.diffplug.talks.socketsandplugs.intellij</id>
+  <name>IntelliJ Plugin Example</name>
+  <version>1.0</version>
+  <vendor email="ned.twigg@diffplug.com" url="https://www.diffplug.com">DiffPlug</vendor>
+
+  <description><![CDATA[Simple IntelliJ plugin.]]></description>
+  <change-notes><![CDATA[No changes so far.]]></change-notes>
+
+  <idea-version since-build="141.0"/>
+
+  <extensionPoints>
+    <extensionPoint name="operatorDescriptor"
+                    beanClass="com.diffplug.talks.socketsandplugs.intellij.OperatorDescriptor"/>
+  </extensionPoints>
+
+  <extensions defaultExtensionNs="com.diffplug.talks.socketsandplugs.intellij">
+    <operatorDescriptor name="pi"
+                        implementationClass="com.diffplug.talks.socketsandplugs.intellij.Operators$Pi"/>
+    <operatorDescriptor name="power"
+                        implementationClass="com.diffplug.talks.socketsandplugs.intellij.Operators$Power"/>
+    <operatorDescriptor name="product"
+                        implementationClass="com.diffplug.talks.socketsandplugs.intellij.Operators$Product"/>
+  </extensions>
+
+  <actions>
+    <action id="socketsandplugs.HelloWorld"
+            class="com.diffplug.talks.socketsandplugs.intellij.HelloWorldAction"
+            text="Hello World"
+            description="Shows HelloWorld">
+      <add-to-group group-id="ToolsMenu" relative-to-action="GenerateJavadoc" anchor="after"/>
+      <keyboard-shortcut first-keystroke="control alt G" second-keystroke="C" keymap="$default"/>
+      <mouse-shortcut keystroke="control button3 doubleClick" keymap="$default"/>
+    </action>
+  </actions>
+</idea-plugin>

@@ -13,3 +13,6 @@ build/
 .classpath
 .settings/
 bin/
+
+# IntelliJ stuff
+out/
