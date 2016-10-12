@@ -1,0 +1,24 @@
+plugins {
+	id 'org.jetbrains.intellij' version '0.1.10'
+}
+
+def VER_IDEA = '2016.2.4'
+def VER_JAVA = '1.8'
+
+apply plugin: 'java'
+sourceSets {
+	main {
+		java.srcDirs 'src'
+		resources.srcDir 'resources'
+	}
+	test {
+		java.srcDir 'test'
+	}
+}
+
+intellij {
+	version VER_IDEA
+}
+
+// The IntelliJ project does not seem to work...
+apply plugin: 'idea'
