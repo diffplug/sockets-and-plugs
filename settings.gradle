@@ -1,2 +1,3 @@
 include 'example-eclipse'
 include 'example-intellij'
+include 'declarative-gradle'

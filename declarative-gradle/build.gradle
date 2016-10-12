@@ -1,0 +1,26 @@
+apply plugin: 'java'
+
+apply plugin: 'maven-publish'
+publishing {
+	publications {
+		maven(MavenPublication) {
+			groupId 'com.mycompany.app'
+			artifactId 'my-app'
+			version '1.0-SNAPSHOT'
+
+			from components.java
+		}
+	}
+}
+
+repositories {
+	mavenCentral()
+}
+
+def profile = project.hasProperty('profile') ? project.profile : 'v18'
+
+String guavaVersion = profile.substring(1) + '.0'
+dependencies {
+	compile 'com.google.guava:guava:' + guavaVersion
+	testCompile 'junit:junit:4.12'
+}
